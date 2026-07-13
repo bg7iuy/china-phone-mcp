@@ -1,1 +1,2 @@
-# Minimal deps — Vercel Python runtime provides stdlib
+starlette>=0.38
+httpx>=0.27
