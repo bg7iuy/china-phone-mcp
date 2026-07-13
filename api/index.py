@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
 Vercel serverless entrypoint — China Phone MCP Server.
-Serves at /api/index/mcp (no rewrite, use the real Vercel path).
+Serves at /api/index/mcp
 """
 import os, httpx
 from mcp.server.fastmcp import FastMCP
+from starlette.applications import Starlette
+from starlette.routing import Mount
 
 mcp = FastMCP("china-phone")
 RAPIDAPI_KEY = os.environ.get("RAPIDAPI_KEY", "")
@@ -27,4 +29,6 @@ async def get_china_phone_info(phone: str) -> dict:
             headers={"X-RapidAPI-Key": RAPIDAPI_KEY, "X-RapidAPI-Host": HOST})
         r.raise_for_status(); return r.json()
 
-app = mcp.streamable_http_app()
+app = Starlette(routes=[
+    Mount("/api/index", app=mcp.streamable_http_app())
+])
