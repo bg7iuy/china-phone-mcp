@@ -1,0 +1,21 @@
+{
+  "builds": [
+    {
+      "src": "server.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/mcp",
+      "dest": "server.py"
+    },
+    {
+      "src": "/health",
+      "dest": "server.py"
+    }
+  ],
+  "env": {
+    "RAPIDAPI_KEY": "@rapidapi-key"
+  }
+}
