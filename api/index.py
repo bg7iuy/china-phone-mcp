@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
-"""Minimal debug: verify Vercel loads the function."""
-from starlette.applications import Starlette
-from starlette.responses import JSONResponse
-from starlette.routing import Route
+from http.server import BaseHTTPRequestHandler
 
-async def debug(request):
-    return JSONResponse({"ok": True, "path": request.url.path})
-
-app = Starlette(routes=[Route("/{path:path}", debug)])
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(b'{"ok":true,"path":"' + self.path.encode() + b'"}')
+        self.wfile.flush()
