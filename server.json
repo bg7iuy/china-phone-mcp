@@ -5,7 +5,7 @@
   "websiteUrl": "https://github.com/bg7iuy/china-phone-api",
   "remotes": {
     "streamableHttp": {
-      "url": "https://china-phone-mcp.vercel.app/mcp",
+      "url": "https://china-phone-mcp.vercel.app/api/index",
       "headers": {}
     }
   },

@@ -29,7 +29,7 @@ Official MIIT (Ministry of Industry and Information Technology) public number al
 ### Install in Claude Code
 
 ```bash
-claude mcp add china-phone https://china-phone-mcp.vercel.app/mcp
+claude mcp add china-phone https://china-phone-mcp.vercel.app/api/index
 ```
 
 ### Use with Cursor
@@ -40,7 +40,7 @@ Add to your Cursor MCP config:
 {
   "mcpServers": {
     "china-phone": {
-      "url": "https://china-phone-mcp.vercel.app/mcp"
+      "url": "https://china-phone-mcp.vercel.app/api/index"
     }
   }
 }
