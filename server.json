@@ -1,30 +1,19 @@
 {
-  "name": "china-phone",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.bg7iuy/china-phone",
+  "title": "China Phone MCP",
+  "description": "Look up Chinese phone number carrier, province, and city from official MIIT allocation data.",
   "version": "1.0.0",
-  "description": "China phone number prefix lookup — carrier, province, city, and line type from official MIIT data. Does NOT access carrier networks or verify subscriber activity.",
-  "websiteUrl": "https://github.com/bg7iuy/china-phone-api",
-  "remotes": {
-    "streamableHttp": {
-      "url": "https://china-phone-mcp.vercel.app/api/index",
-      "headers": {}
-    }
+  "repository": {
+    "url": "https://github.com/bg7iuy/china-phone-mcp",
+    "source": "github"
   },
-  "tools": [
+  "remotes": [
     {
-      "name": "lookup_china_phone",
-      "title": "Lookup China Phone",
-      "description": "Look up a Chinese mobile phone number's prefix attribution. Returns carrier name, province, city, area code, postal code, region code, and number type (mobile/landline) based on official MIIT allocation tables. Prefix-level lookup only — does NOT verify subscriber activity or access carrier networks."
-    },
-    {
-      "name": "get_china_phone_info",
-      "title": "Get China Phone Info",
-      "description": "Get detailed carrier and geographic attribution for a Chinese phone number. Returns carrier, province, city, area code, postal code, region code, number type, and prefix validity from MIIT official allocation data."
+      "type": "streamable-http",
+      "url": "https://china-phone-mcp.vercel.app/api/index"
     }
   ],
   "license": "MIT",
-  "categories": [
-    "data",
-    "communication",
-    "location"
-  ]
+  "categories": ["data", "communication", "location"]
 }
